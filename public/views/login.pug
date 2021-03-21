@@ -1,0 +1,21 @@
+doctype html
+head
+    meta(charset='utf-8')
+    title Connect Four - Log in
+    link(rel='stylesheet' href='/css/design.css')
+    script(src='/js/login.js')
+body(onload='init()')
+    header
+        h1 Connect Four
+        // a.nav.navbtn(href='home') Home
+        // a.nav.navbtn(href='play') Play
+    .main
+        section
+        h2 Log in
+        // form(action='')
+        input#username.logintext(type='text' name='usrnm' placeholder='Username')
+        br
+        input#password.logintext(type='password' name='pwd' placeholder='Password')
+        br
+        button#login(type='button') Log in
+        button#register(type='button') Register

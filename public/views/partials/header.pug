@@ -1,0 +1,9 @@
+header
+  h1 Connect Four
+  a.nav.navbtn(href='/home') Home
+  // a.nav.navbtn(href='/play') Play
+  span.user
+    - let link = "/users/" + user.username + "/"
+    a.nav(href=link)
+      span#usernameHeader.userlink #{user.username}
+      img.pfp(src='/resources/default_pfp.png' alt='PFP' width='50' height='50')

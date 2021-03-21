@@ -1,0 +1,18 @@
+{
+    "user1": {"username":"user1", "password":"12345", "visibility":"public", "games":0, "wins":0, "friends":[], "friendReqs":[], "gameHistory":["0", "1"], "activeGames":["2"], "status":"offline"},
+    "user2": {"username":"user2", "password":"12345", "visibility":"public", "games":0, "wins":0, "friends":[], "friendReqs":[], "gameHistory":["0"], "activeGames":[], "status":"offline"},
+    "user3": {"username":"user3", "password":"12345", "visibility":"public", "games":0, "wins":0, "friends":["user5"], "friendReqs":[], "gameHistory":[], "activeGames":[], "status":"offline"},
+    "user4": {"username":"user4", "password":"12345", "visibility":"public", "games":0, "wins":0, "friends":[], "friendReqs":[], "gameHistory":[], "activeGames":[], "status":"offline"},
+    "user5": {"username":"user5", "password":"12345", "visibility":"public", "games":0, "wins":0, "friends":["user10", "user3"], "friendReqs":[], "gameHistory":[], "activeGames":["3"], "status":"offline"},
+    "user6": {"username":"user6", "password":"12345", "visibility":"public", "games":0, "wins":0, "friends":[], "friendReqs":[], "gameHistory":[], "activeGames":[], "status":"offline"},
+    "user7": {"username":"user7", "password":"12345", "visibility":"public", "games":0, "wins":0, "friends":[], "friendReqs":[], "gameHistory":[], "activeGames":[], "status":"offline"},
+    "user8": {"username":"user8", "password":"12345", "visibility":"public", "games":0, "wins":0, "friends":[], "friendReqs":[], "gameHistory":[], "activeGames":[], "status":"offline"},
+    "user9": {"username":"user9", "password":"12345", "visibility":"public", "games":0, "wins":0, "friends":[], "friendReqs":[], "gameHistory":[], "activeGames":[], "status":"offline"},
+    "user10": {"username":"user10", "password":"12345", "visibility":"private", "games":0, "wins":0, "friends":["user5"], "friendReqs":[], "gameHistory":["1"], "activeGames":["2", "3"], "status":"offline"},
+    "user11": {"username":"user11", "password":"12345", "visibility":"private", "games":0, "wins":0, "friends":["user16"], "friendReqs":[], "gameHistory":[], "activeGames":[], "status":"offline"},
+    "user12": {"username":"user12", "password":"12345", "visibility":"public", "games":0, "wins":0, "friends":[], "friendReqs":[], "gameHistory":[], "activeGames":[], "status":"offline"},
+    "user13": {"username":"user13", "password":"12345", "visibility":"public", "games":0, "wins":0, "friends":[], "friendReqs":[], "gameHistory":[], "activeGames":[], "status":"offline"},
+    "user14": {"username":"user14", "password":"12345", "visibility":"public", "games":0, "wins":0, "friends":[], "friendReqs":[], "gameHistory":[], "activeGames":[], "status":"offline"},
+    "user15": {"username":"user15", "password":"12345", "visibility":"public", "games":0, "wins":0, "friends":[], "friendReqs":[], "gameHistory":[], "activeGames":[], "status":"offline"},
+    "user16": {"username":"user16", "password":"password", "visibility":"public", "games":0, "wins":0, "friends":["user11"], "friendReqs":[], "gameHistory":[], "activeGames":[], "status":"offline"}
+}

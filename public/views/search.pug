@@ -1,0 +1,27 @@
+doctype html
+head
+    meta(charset='utf-8')
+    title Connect Four - Search Users
+    link(rel='stylesheet' href='../css/design.css')
+    script(src='/js/search.js')
+include ./partials/header
+body(onload='init()')
+    .main
+        div
+            form.add-friends(action="/users" method="get")
+                label(for="name") Add Friends:
+                input(type="search", name="name")
+                |
+                button(type="submit") Search
+        h2 Results
+        div.flex-friends
+            each usr in result
+                div.result
+                    img(src="/resources/default_pfp.png", alt="PFP", width="32", height="32")
+                    |
+                    |#{usr.username}
+                    |
+                    //img(src="/resources/offline.png", alt="(Online)", width="10", height="10")
+                    br
+                    button.reqButton(id="add" + usr.username type="button" onclick="sendFriendRequest(this)") Send Friend Request
+                    //button(type="button") Remove

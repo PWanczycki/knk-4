@@ -1,0 +1,46 @@
+doctype html
+head
+    meta(charset='utf-8')
+    title Connect Four - Home
+    link(rel='stylesheet' href='../css/design.css')
+    //script(src="/js/home.js")
+body(onload='init()')
+    include ./partials/header
+    .main
+        section
+        h2 New Game
+        form(action='')
+            span.forminput
+                label(for='opnt') Choose Opponent:
+                select#opnt(name='opnt')
+                    option(value='random') Random
+                        optgroup(label='Friends')
+                            each friend in user.friends
+                                option(value='#{friend}') #{friend}
+            span.forminput
+                label(for='vis') Visibility:
+                select#vis(name='vis')
+                    option(value='public') Public
+                    option(value='friends') Friends Only
+                    option(value='private') Private
+            span.forminput
+                input#creategame(type='button' value='Create Game')
+        section
+        h2 Active Games
+        table
+            tr
+                th Opponent
+                th Turn
+                th
+            each game in active
+                tr
+                    -
+                        let opp = game.players[0];
+                        if (opp === user.username) 
+                            opp =game.players[1];
+                        let link = "/games/" + game.gameID
+                    td 
+                        a(href="/users/"+opp) #{opp}
+                    td tempTurn
+                    td
+                        a(href=link) Resume

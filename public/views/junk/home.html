@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Connect Four - Home</title>
+    <link rel="stylesheet" href="design.css" />
+  </head>
+  <body>
+    <header>
+      <!-- Place Holder for logo -->
+      <h1>Connect Four</h1>
+      <a class="nav navbtn" href="home">Home</a>
+      <a class="nav navbtn" href="play">Play</a>
+      <span class="user">
+        <a class="nav" href="profile">
+          <span class="userlink">username</span>
+          <img class="pfp" src="default_pfp.png" alt="PFP" width="50" height="50">
+        </a>
+      </span>
+    </header>
+
+    <div class="main">
+      <section>
+        <h2>New Game</h2>
+        <form action="">
+          <span class="forminput">
+            <label for="opnt">Choose Opponent:</label>
+            <select name="opnt" id="opnt">
+              <option value="random">Random</option>
+              <optgroup label="Friends">
+                <!-- Placeholder friends -->
+                <option value="Azen">Azen</option>
+                <option value="Leffen">Leffen</option>
+                <option value="M2K">M2K</option>
+                <option value="Mang0">Mang0</option>
+                <option value="Plup">Plup</option>
+                <option value="Zain">Zain</option>
+              </optgroup>
+            </select>
+          </span>
+          <span class="forminput">
+            <label for="vis">Visibility:</label>
+            <select name="vis" id="vis">
+              <option value="public">Public</option>
+              <option value="friends">Friends Only</option>
+              <option value="private">Private</option>
+            </select>
+          </span>
+          <span class="forminput">
+            <input type="submit" value="Create Game">
+          </span>
+        </form>
+      </section>
+
+      <section>
+        <h2>Active Games</h2>
+        <table>
+          <tr>
+            <th>Opponent</th>
+            <th>Turn</th>
+            <th></th>
+          </tr>
+          <!-- Placeholder games -->
+          <tr>
+            <td>Zain</td>
+            <td>Your turn</td>
+            <td><a href="play.html">Resume</a></td>
+          </tr>
+          <tr>
+            <td>XCX_Charli_XCX</td>
+            <td>Their turn</td>
+            <td><a href="play.html">Resume</a></td>
+          </tr>
+          <tr>
+            <td>Azen</td>
+            <td>Their turn</td>
+            <td><a href="play.html">Resume</a></td>
+          </tr>
+        </table>
+      </section>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,182 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: "Trebuchet MS";
+	vertical-align: baseline;
+}
+
+html, body {
+  height: 100%;
+}
+
+header {
+  width: 100%;
+  height: 100px;
+  background-color: #225e04;
+  margin: 0;
+}
+
+h1 {
+  font-size: 50px;
+  color: #f7eecb;
+  float: left;
+  margin-top: 40px;
+  margin-left: 20%;
+}
+
+h2 {
+  font-size: 32px;
+  color: #132b07;
+  text-align: center;
+  padding: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+th, td {
+  border: 1px solid #132b07;
+  color: #132b07;
+  padding: 5px 20px 5px 20px;
+}
+
+th {
+  background-color: #132b07;
+  color: #f7eecb;
+}
+
+circle {
+    pointer-events: none;
+}
+
+.main {
+  margin-top: 0;
+  margin-left: 20%;
+  margin-right: 20%;
+  height: 100%;
+  background-color: #f7eecb;
+  text-align: center;
+  padding: 50px;
+}
+
+.nav:link, .nav:visited, .nav:active {
+  color: #f7eecb;
+  text-decoration: none;
+}
+
+.navbtn {
+  position: relative;
+  top: 64px;
+  font-size: 150%;
+  padding: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-left: 20px;
+  background-color: #1a4704;
+}
+
+.user {
+  margin-right: 21%;
+  float: right;
+}
+
+.userlink {
+  font-size: 120%;
+  position: relative;
+  bottom: 10px;
+  right: 10px;
+}
+
+.pfp {
+  margin-top: 50px;
+}
+
+.logintext {
+  margin-bottom: 10px;
+}
+
+.forminput {
+  margin: 0 10px 0 10px;
+}
+
+.userinfo {
+  float: left;
+  padding-right: 40%;
+}
+
+.username {
+  color: #132b07;
+  font-size: 200%;
+  margin: 0px 20px 0px 40px;
+}
+
+.flex-friends {
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-around;
+  border: 2px solid #132b07;
+  background-color: #efde9a;
+  padding: 5px;
+}
+
+.add-friends, .logout {
+  margin: 20px;
+}
+
+.game {
+  width: 70%;
+  margin-right: 5%;
+  float: left;
+}
+
+.chat {
+  width: 25%;
+  float: left;
+}
+
+.flex-viewers {
+  display: flex;
+  flex-wrap: wrap;
+  width: 240px;
+  justify-content: space-around;
+  border-style: solid;
+}
+
+.flex-chat {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  width: 240px;
+  height: 600px;
+  border-style: solid;
+  text-align: left;
+  background-color: #ffffff;
+  border: 4px inset;
+  margin: 10px 0px 10px 0px;
+}
+
+.vis {
+    float: left;
+}
+
+.result {
+    margin-bottom: 4px;
+}

@@ -1,0 +1,103 @@
+html
+    head
+        meta(charset="utf-8")
+        title Connect Four - #{user.username}
+        link(rel="stylesheet", href="/css/design.css")
+        // script(src="/js/profile.js")
+    body
+        include ./partials/header
+        div.main
+            div.userinfo
+                img(src="/resources/default_pfp.png", alt="PFP", width="150", height="150")
+                span.username
+                    = user.username
+                span
+                    -
+                        let wins = 0;
+                        if (user.games !== 0) { wins = user.wins/user.games*100; }
+                    = user.games + " Games Played / " + wins + "% Win Ratio"
+                div.vis
+                    if user.visibility === "private"
+                        |Your profile is Private.
+                        |
+                        button(type="button") Set to Public
+                    else
+                        |Your profile is Public.
+                        |
+                        button(type="button") Set to Private
+            section
+                h2 Friends
+                if user.friends.length > 0
+                    div.flex-friends
+                        each friend in user.friends
+                            div
+                                a(href="/users/" + friend)
+                                    img(src="/resources/default_pfp.png", alt="PFP", width="32", height="32")
+                                    |
+                                    |#{friend}
+                                    |
+                                    img(src="/resources/offline.png", alt="(Online)", width="10", height="10")
+                                br
+                                button(type="button") Play
+                                button(type="button") Remove
+                div
+                    form.add-friends(action="/users" method="get")
+                        label(for="name") Add Friends:
+                        input(type="search", name="name")
+                        |
+                        button(type="submit") Search
+            section
+                //parse games according to requesting user
+                h2 Active Games
+                table
+                    tr
+                        th Opponent
+                        th Turn
+                        th
+                    each gameID in user.activeGames
+                        tr
+                            -
+                                let game = games[gameID];
+                                let opp = game.players[0];
+                                if (opp === user.username) 
+                                    opp =game.players[1];
+                                let link = "/games/" + gameID
+                            td 
+                                a(href="/users/"+opp) #{opp}
+                            td tempTurn
+                            td
+                                a(href=link) Resume
+            section
+                h2 History
+                table
+                    tr
+                        th Result
+                        th Opponent
+                        th # of Moves
+                        th
+                    each gameID in user.gameHistory
+                        tr
+                            -
+                                let game = games[gameID];
+                                let result;
+                                if (game.winner === user.username) {
+                                    result = "Win :)";
+                                } else if (game.winner === "None") {
+                                    result = "Tie :|";
+                                } else {
+                                    result = "Loss :(";
+                                }
+                                let oppH = game.players[0];
+                                if (oppH === user.username) 
+                                    oppH =game.players[1];
+                                let moves = game.moves.length;
+                                let linkH = "/games/" + gameID
+                            td #{result}
+                            td 
+                                a(href="/users/"+oppH) #{oppH}
+                            td #{moves}
+                            td
+                                a(href=linkH) Replay
+            div.logout
+                a(href="/logout")
+                    button#logout(type="button") Log out

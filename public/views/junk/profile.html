@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Connect Four - User Profile</title>
+    <link rel="stylesheet" href="design.css" />
+  </head>
+  <body>
+    <header>
+      <!-- Place Holder for logo -->
+      <h1>Connect Four</h1>
+      <a class="nav navbtn" href="home">Home</a>
+      <a class="nav navbtn" href="play">Play</a>
+      <span class="user">
+        <a class="nav" href="profile">
+          <span class="userlink">username</span>
+          <img class="pfp" src="default_pfp.png" alt="PFP" width="50" height="50">
+        </a>
+      </span>
+    </header>
+
+    <div class="main">
+      <div class="userinfo">
+        <img src="default_pfp.png" alt="PFP" width="150" height="150">
+        <span class="username">Username</span>
+        <span>38 Games Played / 54% Win Ratio</span>
+        <div class="vis">
+          Your profile is Public. <button type="button">Set to Private</button>
+        </div>
+      </div>
+
+      <section>
+        <h2>Friends</h2>
+        <div class="flex-friends">
+          <div>
+            <img src="default_pfp.png" alt="PFP" width="32" height="32">Azen
+            <img src="" alt="(Offline)" width="10" height="10"><br />
+            <button type="button">Play</button>
+            <button type="button">Remove</button>
+          </div>
+          <div>
+            <img src="default_pfp.png" alt="PFP" width="32" height="32">Leffen
+            <img src="" alt="(Online)" width="10" height="10"><br />
+            <button type="button">Play</button>
+            <button type="button">Remove</button>
+          </div>
+          <div>
+            <img src="default_pfp.png" alt="PFP" width="32" height="32">M2K
+            <img src="" alt="(Offline)" width="10" height="10"><br />
+            <button type="button">Play</button>
+            <button type="button">Remove</button>
+          </div>
+          <div>
+            <img src="default_pfp.png" alt="PFP" width="32" height="32">Mang0
+            <img src="" alt="(Offline)" width="10" height="10"><br />
+            <button type="button">Play</button>
+            <button type="button">Remove</button>
+          </div>
+          <div>
+            <img src="default_pfp.png" alt="PFP" width="32" height="32"><span>Plup</span>
+            <img src="" alt="(Online)" width="10" height="10"><br />
+            <button type="button">Play</button>
+            <button type="button">Remove</button>
+          </div>
+          <div>
+            <img src="default_pfp.png" alt="PFP" width="32" height="32">Zain
+            <img src="" alt="(Online)" width="10" height="10"><br />
+            <button type="button">Play</button>
+            <button type="button">Remove</button>
+          </div>
+        </div>
+
+        <div>
+          <form class="add-friends">
+            <label for="friendSearch">Add Friends: </label>
+            <input type="search" name="friendSearch">
+            <input type="submit" value="Search">
+          </form>
+        </div>
+      </section>
+
+      <section>
+        <h2>Active Games</h2>
+        <table>
+          <tr>
+            <th>Opponent</th>
+            <th>Turn</th>
+            <th></th>
+          </tr>
+          <!-- Placeholder games -->
+          <tr>
+            <td>Zain</td>
+            <td>Your turn</td>
+            <td><a href="play">Resume</a></td>
+          </tr>
+          <tr>
+            <td>XCX_Charli_XCX</td>
+            <td>Their turn</td>
+            <td><a href="play">Resume</a></td>
+          </tr>
+          <tr>
+            <td>Azen</td>
+            <td>Their turn</td>
+            <td><a href="play">Resume</a></td>
+          </tr>
+        </table>
+      </section>
+
+      <section>
+        <h2>History</h2>
+        <table>
+          <tr>
+            <th>Result</th>
+            <th>Opponent</th>
+            <th># of Moves</th>
+            <th></th>
+          </tr>
+          <tr>
+            <td>Win</td>
+            <td>Ch33se_luvr</td>
+            <td>13</td>
+            <td><a href="">Replay</a></td>
+          </tr>
+          <tr>
+            <td>Loss</td>
+            <td>Connect4Lyf</td>
+            <td>4</td>
+            <td><a href="">Replay</a></td>
+          </tr>
+          <tr>
+            <td>Loss</td>
+            <td>Zain</td>
+            <td>14</td>
+            <td><a href="">Replay</a></td>
+          </tr>
+          <tr>
+            <td>Win</td>
+            <td>Zain</td>
+            <td>20</td>
+            <td><a href="">Replay</a></td>
+          </tr>
+        </table>
+      </section>
+
+      <div class="logout">
+        <button type="button">Log out</button>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+doctype html
+head
+    meta(charset='utf-8')
+    title Connect Four - Play
+    link(rel='stylesheet' href='../css/design.css')
+    script(src='/socket.io/socket.io.js')
+    script(src='/js/play.js')
+include ./partials/header
+body(onload='init()')
+    .main
+        main.game
+            - let p1 = game.players[0];
+            - let p2 = game.players[1];
+            h2 #{p1} vs. #{p2}
+            svg#game(width='700' height='600')
+                - let x = 50;
+                each column in game.board
+                    - let colID = (x-50)/100;
+                    rect(id='col' + colID.toString() x=(x-50).toString() width='100' height='600' style='fill:#6699ff;')
+                    - let y = 550;
+                    each row in column
+                        -
+                            let inside = '#f7eecb';
+                            let out = '#f7eecb';
+                            if (row === 1) {inside = '#fff040'; out = '#ffcc00';}
+                            if (row === 2) {inside = '#f04020'; out = '#cc0000';}
+                            let rowID = (y-50)/100;
+                        circle(id='x'+colID+'y'+rowID cx=x.toString() cy=y.toString() r='35' style="stroke-width: 6; stroke: "+out+"; fill: "+inside )
+                        - y -= 100;
+                    - x += 100;
+                //circle(cx='50' cy='50' r='35' stroke='#ffffff' stroke-width='6' fill='#ffffff')
+                //circle(cx='150' cy='50' r='35' stroke='#ffffff' stroke-width='6' fill='#ffffff')
+                //circle(cx='250' cy='50' r='35' stroke='#ffffff' stroke-width='6' fill='#ffffff')
+                //circle(cx='350' cy='50' r='35' stroke='#ffffff' stroke-width='6' fill='#ffffff')
+                //circle(cx='450' cy='50' r='35' stroke='#ffffff' stroke-width='6' fill='#ffffff')
+                //circle(cx='550' cy='50' r='35' stroke='#ffffff' stroke-width='6' fill='#ffffff')
+                //circle(cx='650' cy='50' r='35' stroke='#ffffff' stroke-width='6' fill='#ffffff')
+                //circle(cx='50' cy='150' r='35' stroke='#ffffff' stroke-width='6' fill='#ffffff')
+                //circle(cx='150' cy='150' r='35' stroke='#ffffff' stroke-width='6' fill='#ffffff')
+                //circle(cx='250' cy='150' r='35' stroke='#ffffff' stroke-width='6' fill='#ffffff')
+                //circle(cx='350' cy='150' r='35' stroke='#ffffff' stroke-width='6' fill='#ffffff')
+                //circle(cx='450' cy='150' r='35' stroke='#ffffff' stroke-width='6' fill='#ffffff')
+                //circle(cx='550' cy='150' r='35' stroke='#ffffff' stroke-width='6' fill='#ffffff')
+                //circle(cx='650' cy='150' r='35' stroke='#ffffff' stroke-width='6' fill='#ffffff')
+                //circle(cx='50' cy='250' r='35' stroke='#ffffff' stroke-width='6' fill='#ffffff')
+                //circle(cx='150' cy='250' r='35' stroke='#ffffff' stroke-width='6' fill='#ffffff')
+                //circle(cx='250' cy='250' r='35' stroke='#ffcc00' stroke-width='6' fill='#fff040')
+                //circle(cx='350' cy='250' r='35' stroke='#ffffff' stroke-width='6' fill='#ffffff')
+                //circle(cx='450' cy='250' r='35' stroke='#ffffff' stroke-width='6' fill='#ffffff')
+                //circle(cx='550' cy='250' r='35' stroke='#ffffff' stroke-width='6' fill='#ffffff')
+                //circle(cx='650' cy='250' r='35' stroke='#ffffff' stroke-width='6' fill='#ffffff')
+                //circle(cx='50' cy='350' r='35' stroke='#ffffff' stroke-width='6' fill='#ffffff')
+                //circle(cx='150' cy='350' r='35' stroke='#ffffff' stroke-width='6' fill='#ffffff')
+                //circle(cx='250' cy='350' r='35' stroke='#ffcc00' stroke-width='6' fill='#fff040')
+                //circle(cx='350' cy='350' r='35' stroke='#ffffff' stroke-width='6' fill='#ffffff')
+                //circle(cx='450' cy='350' r='35' stroke='#cc0000' stroke-width='6' fill='#f04020')
+                //circle(cx='550' cy='350' r='35' stroke='#ffffff' stroke-width='6' fill='#ffffff')
+                //circle(cx='650' cy='350' r='35' stroke='#ffffff' stroke-width='6' fill='#ffffff')
+                //circle(cx='50' cy='450' r='35' stroke='#cc0000' stroke-width='6' fill='#f04020')
+                //circle(cx='150' cy='450' r='35' stroke='#ffffff' stroke-width='6' fill='#ffffff')
+                //circle(cx='250' cy='450' r='35' stroke='#cc0000' stroke-width='6' fill='#f04020')
+                //circle(cx='350' cy='450' r='35' stroke='#cc0000' stroke-width='6' fill='#f04020')
+                //circle(cx='450' cy='450' r='35' stroke='#ffcc00' stroke-width='6' fill='#fff040')
+                //circle(cx='550' cy='450' r='35' stroke='#ffffff' stroke-width='6' fill='#ffffff')
+                //circle(cx='650' cy='450' r='35' stroke='#ffffff' stroke-width='6' fill='#ffffff')
+                //circle(cx='50' cy='550' r='35' stroke='#ffcc00' stroke-width='6' fill='#fff040')
+                //circle(cx='150' cy='550' r='35' stroke='#cc0000' stroke-width='6' fill='#f04020')
+                //circle(cx='250' cy='550' r='35' stroke='#ffcc00' stroke-width='6' fill='#fff040')
+                //circle(cx='350' cy='550' r='35' stroke='#ffcc00' stroke-width='6' fill='#fff040')
+                //circle(cx='450' cy='550' r='35' stroke='#cc0000' stroke-width='6' fill='#f04020')
+                //circle(cx='550' cy='550' r='35' stroke='#ffcc00' stroke-width='6' fill='#fff040')
+                //circle(cx='650' cy='550' r='35' stroke='#cc0000' stroke-width='6' fill='#f04020')
+            br
+            button(type='button') Forfeit
+            span 
+                = game.viewers.length + " viewers"
+        aside.chat
+            h3 Viewers:
+            .flex-viewers
+                each viewer in game.viewers
+                    .viewer 
+                        = viewer
+            .flex-chat
+                if game.chat != null
+                    each chat in game.chat
+                        - let msg = chat[1];
+                        div #{msg}
+            form
+                input(type='text' name='msg' placeholder='Send message...')
+                input(type='submit' value='Send')
