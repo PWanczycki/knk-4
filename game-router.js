@@ -19,7 +19,7 @@ const renderGame = pug.compileFile("./public/views/play.pug");
 router.post("/", express.json(), authorizePost, createGame); // body: {reqUser, opp, vis}
 router.get("/", checkLogin, queryParser, loadGames, sendGames);
 router.get("/:gid", checkLogin, authorizeGet, sendSingleGame);
-router.put("/:gid", express.json(), updateGame);
+router.put("/:gid", express.json(), authorizePut, updateGame);
 
 function checkLogin(req, res, next) {
     res.format({
@@ -210,25 +210,59 @@ function sendSingleGame(req, res, next) {
     });
 }
 
-function updateGame(req, res, next) {
-    let id = req.params.gid
+function authorizePut(req, res, next) {
+    let id = req.params.gid;
+    // DB find game
     if (req.app.locals.games.hasOwnProperty(id)) {
-        Object.keys(req.body).forEach((property, i) => {
-            if (req.app.locals.games[id].hasOwnProperty(property)) {
-                req.app.locals.games[id][property] = req.body[property];
-            }
-        });
-        res.format({
-            'text/html': function () {
-                res.status(200).send("game updated");
-            },
-            'application/json': function () {
-                res.status(200).json(req.app.locals.games[id]);
-            }
-        });
+        res.game = req.app.locals.games[id];
+        if (req.body.hasOwnProperty(move) && !res.game.players.includes(req.session.username)) {
+            res.status(401).send("ERROR: Non-player sending move");
+        }
+        next();
     } else {
-        res.status(404).send("There is no game with that ID");
+        res.status(404).send("This game does not exist");
     }
+}
+
+function updateGame(req, res, next) {
+    if (req.body.hasOwnProperty(move)) {
+        let col = req.body.move;
+        if (col >= 0 && col <= 6) {
+            let token;
+            if (res.game.players[0] == req.session.username) {
+                token = 1;
+            } else {
+                token = 2;
+            }
+            let validMove = false;
+            for (let i = 0; i < 6; ++i) {
+                if (res.game.board[col][i] === 0) {
+                    res.game.board[col][i] = token;
+                    validMove = true;
+                    break;
+                }
+            }
+            if (validMove) {
+                //update in DB
+                req.app.locals.games[req.params.gid].board = res.game.board;
+                let newMove = "";
+                if (token === 1) {
+                    newMove += "Y";
+                } else {
+                    newMove += "R";
+                }
+                newMove += col.toString();
+                req.app.locals.games[req.params.gid].moves.push(newMove);
+
+            } else {
+                res.status(400).send("column full");
+            }
+        } else {
+            res.status(400).send("invalid column value for new move");
+        }
+    }
+
+    res.status(200).send();
 }
 
 module.exports = router;
