@@ -23,5 +23,13 @@
         [2,1,2,0,0,0],
         [1,0,0,0,0,0],
         [2,0,0,0,0,0]
-    ],"visibility":"private","viewers":["user513", "user325", "user985", "user65", "user276", "user23", "user5", "user343"],"chat":[["user325","What a game, I think this one is going to be really close :)"],["user23","I agree"]],"status":"ongoing","winner":""}, "3":{"gameID":"3","players":["user5","user10"],"moves":[],"board":[[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0]],"visibility":"friendsOnly","viewers":[],"status":"ongoing","winner":""}
+    ],"visibility":"private","viewers":["user513", "user325", "user985", "user65", "user276", "user23", "user5", "user343"],"chat":[["user325","What a game, I think this one is going to be really close :)"],["user23","I agree"]],"status":"ongoing","winner":""}, "3":{"gameID":"3","players":["user5","user10"],"moves":[],"board":[
+        [0,0,0,0,0,0],
+        [0,0,0,0,0,0],
+        [0,0,0,0,0,0],
+        [0,0,0,0,0,0],
+        [0,0,0,0,0,0],
+        [0,0,0,0,0,0],
+        [0,0,0,0,0,0]
+    ],"visibility":"friendsOnly","viewers":[],"status":"ongoing","winner":""}
 }
