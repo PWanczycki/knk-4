@@ -11,9 +11,9 @@ function init() {
         document.getElementById("col" + i).addEventListener("click", makeMove);
     }
     user = document.getElementById("usernameHeader").innerHTML;
-    socket.emit("setgame", window.location.href.slice(-1));
-    socket.emit("setname", user);
-    drawPiece({colour:"y", col:6, height:5});
+    // socket.emit("setgame", window.location.href.slice(-1));
+    // socket.emit("setname", user);
+    // drawPiece({colour:"y", col:6, height:5});
 }
 
 

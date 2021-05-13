@@ -3,7 +3,7 @@ const express = require("express");
 const session = require("express-session");
 const app = express();
 const server = require('http').createServer(app);
-const io = require('socket.io')(server);
+// const io = require('socket.io')(server);
 // const fs = require("fs");
 // const path = require("path");
 const pug = require("pug");
@@ -103,18 +103,18 @@ function sendHome(req, res, next) {
 server.listen(3000);
 console.log("Server listening at http://127.0.0.1:3000");
 
-io.on("connection", socket => {
-    console.log("Client connected");
-
-    socket.on("setgame", game => {
-        socket.game = game;
-    });
-
-    socket.on('setname', name => {
-        socket.username = name;
-        console.log(socket.username + ", " + socket.game);
-    });
-});
+// io.on("connection", socket => {
+//     console.log("Client connected");
+//
+//     socket.on("setgame", game => {
+//         socket.game = game;
+//     });
+//
+//     socket.on('setname', name => {
+//         socket.username = name;
+//         console.log(socket.username + ", " + socket.game);
+//     });
+// });
 
 
 /*
